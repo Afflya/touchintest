@@ -3,7 +3,11 @@ package com.afflyas.touchintest.db
 import androidx.room.TypeConverter
 import java.sql.Date
 
-
+/**
+ *
+ * Converter to be able to store Date objects in the database
+ *
+ */
 object DateConverter {
 
     @JvmStatic

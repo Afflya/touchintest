@@ -15,6 +15,23 @@ import retrofit2.Response
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
+/**
+ *
+ * Repository that handles MovieEntity objects.
+ *
+ * Request result stores in searchResult
+ * that should be observed by ViewModel
+ *
+ * Result contains RepoResponseStatus with status of request
+ * and List<MovieEntity> with the list of albums found
+ *
+ *
+ * Api response data writes to the database (old data deletes)
+ * and to searchResult
+ *
+ * if Request failed searchResult is read from the database
+ *
+ */
 class MoviesRepository @Inject constructor(
         private val apiService: ApiService,
         private val movieDao: MovieDao) {
@@ -25,7 +42,7 @@ class MoviesRepository @Inject constructor(
 
     /**
      *
-     * Load data from network or from database if network is not available
+     * Load data from network or database
      *
      */
     fun loadMovies(sortBy: SortResponse){
@@ -39,7 +56,7 @@ class MoviesRepository @Inject constructor(
 
     /**
      *
-     * Load data directly from database
+     * Load data from database only
      *
      */
     fun loadMoviesFromDb(sortBy: SortResponse){
@@ -110,8 +127,5 @@ class MoviesRepository @Inject constructor(
         }else{
             list
         }
-
-
-
     }
 }

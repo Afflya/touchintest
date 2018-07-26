@@ -19,6 +19,14 @@ import com.afflyas.touchintest.ui.common.SortResponse
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
+/**
+ * A fragment to load and display list of movies from api
+ *
+ *
+ * Implemented RetryCallback to handle retry button click
+ *
+ * Implemented ItemClickCallback to handle recycler view item click
+ */
 class ListMoviesFragment : Fragment(), RetryCallback, ItemClickCallback {
 
     private lateinit var fragmentBinding: FragmentListMoviesBinding
@@ -26,6 +34,9 @@ class ListMoviesFragment : Fragment(), RetryCallback, ItemClickCallback {
     @Inject
     lateinit var mainActivity: MainActivity
 
+    /**
+     * Custom factory to enable injecting into ViewModel
+     */
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -67,6 +78,17 @@ class ListMoviesFragment : Fragment(), RetryCallback, ItemClickCallback {
         fragmentBinding.appBar.setExpanded(true)
     }
 
+    /**
+     * set adapter to recyclerView
+     *
+     * subscribe observer for searchResult
+     * to change data in the view's binding and searchAdapter
+     *
+     * subscribe swipeRefresh
+     *
+     * load movies if searchResult is null (when fragment opens for the 1st time)
+     *
+     */
     private fun subscribeUI() {
 
         moviesAdapter = MoviesAdapter(this)
@@ -108,11 +130,17 @@ class ListMoviesFragment : Fragment(), RetryCallback, ItemClickCallback {
         NavHostFragment.findNavController(this).navigate(action)
     }
 
+
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.sort_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    /**
+     * Load sorted data from database
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.itemSortByDefault -> mViewModel.sortBy = SortResponse.DEFAULT

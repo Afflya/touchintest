@@ -12,7 +12,7 @@ class RepoResponse<T>(private val status: RepoResponseStatus, private val data: 
 
     companion object {
         /**
-         * Create response instance with data returned by successful response(could be null)
+         * Create response instance with data returned by successful response
          */
         fun <T> success(data: T?): RepoResponse<T> {
             return RepoResponse(RepoResponseStatus.SUCCESS, data)

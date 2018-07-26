@@ -9,6 +9,11 @@ import com.afflyas.touchintest.databinding.ItemMovieBinding
 import com.afflyas.touchintest.db.MovieEntity
 import com.afflyas.touchintest.ui.common.ItemClickCallback
 
+/**
+ *
+ * Adapter for RecyclerView in ListMoviesFragment
+ *
+ */
 class MoviesAdapter(private val onItemClickCallback: ItemClickCallback) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var movies: List<MovieEntity>? = null

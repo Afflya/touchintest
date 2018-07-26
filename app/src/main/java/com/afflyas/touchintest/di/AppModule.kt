@@ -44,6 +44,11 @@ class AppModule {
                 .create(ApiService::class.java)
     }
 
+    /**
+     *
+     * Provide single AppDatabase instance
+     *
+     */
     @Singleton
     @Provides
     fun provideDb(app: Application): AppDatabase {
@@ -53,6 +58,11 @@ class AppModule {
                 .build()
     }
 
+    /**
+     *
+     * Provide dao to work with movies table
+     *
+     */
     @Singleton
     @Provides
     fun provideMovieDao(db: AppDatabase): MovieDao {

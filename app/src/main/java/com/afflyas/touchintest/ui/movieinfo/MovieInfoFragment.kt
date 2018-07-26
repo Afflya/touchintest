@@ -14,6 +14,9 @@ import com.afflyas.touchintest.databinding.FragmentMovieInfoBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
+/**
+ * Fragment to display general information about movie
+ */
 class MovieInfoFragment : Fragment() {
 
     private lateinit var fragmentBinding: FragmentMovieInfoBinding
@@ -48,6 +51,9 @@ class MovieInfoFragment : Fragment() {
         return fragmentBinding.root
     }
 
+    /**
+     * Subscribe arrow back button in toolbar
+     */
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item!!.itemId == android.R.id.home) mainActivity.onBackPressed()
         return super.onOptionsItemSelected(item)

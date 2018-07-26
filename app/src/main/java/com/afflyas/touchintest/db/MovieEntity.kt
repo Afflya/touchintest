@@ -6,7 +6,15 @@ import androidx.room.*
 import com.google.gson.annotations.SerializedName
 import java.sql.Date
 
-
+/**
+ *
+ * Entity that contains general information about movie provided by api
+ *
+ *
+ * Implemented Parcelable to be able to put MovieEntity objects into Bundle and pass it
+ * as argument when navigating to MovieInfoFragment
+ *
+ */
 @Entity(tableName = MovieEntity.TABLE_NAME)
 class MovieEntity() : Parcelable{
 

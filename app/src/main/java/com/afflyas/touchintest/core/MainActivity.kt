@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //set default app theme
+        setTheme(R.style.AppTheme)
+
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
