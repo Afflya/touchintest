@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TouchinTest</string>
+
+    <string name="empty_result">Nothing found</string>
+
+    <string name="loading_error">An error occurred while loading</string>
+
+    <string name="retry">Retry</string>
+
+    <string name="poster">Poster</string>
+
+    <string name="backdrop">Backdrop</string>
+
+    <string name="overview">Overview</string>
+
+    <string name="original_language">Original Language</string>
+    <string name="release_date">Release Date</string>
+    <string name="vote_average">Vote Average</string>
+    <string name="popularity">Popularity</string>
+
+    <string name="sort_menu_default">Sort by Default</string>
+    <string name="sort_menu_date">Sort by Release date</string>
+    <string name="sort_menu_rating">Sort by Rating</string>
+
+
+
+
+</resources>
