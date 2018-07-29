@@ -3,6 +3,7 @@ package com.afflyas.touchintest.ui.listmovies
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.afflyas.touchintest.R
 import com.afflyas.touchintest.databinding.ItemMovieBinding
@@ -29,8 +30,13 @@ class MoviesAdapter(private val onItemClickCallback: ItemClickCallback) : Recycl
             movies = null
             notifyItemRangeInserted(0, 0)
         } else {
-            movies = newMovies
-            notifyDataSetChanged()
+            if(movies == null || movies!!.isEmpty()){
+                movies = newMovies
+                notifyDataSetChanged()
+            }else{
+                val diffResult = DiffUtil.calculateDiff(MoviesDiffUtilsCallback(movies!!,newMovies))
+                diffResult.dispatchUpdatesTo(this)
+            }
         }
     }
 
